@@ -1,0 +1,1001 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Personal Portfolio</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background: linear-gradient(
+                135deg,
+                #dceeff,
+                #b9dcf5,
+                #eaf6ff
+            );
+
+            background-size: 200% 200%;
+            animation: backgroundMove 12s ease infinite;
+
+            font-family: Arial, sans-serif;
+            color: #263f59;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 35px 20px;
+        }
+
+
+        /* =========================
+           MAIN LAYOUT
+        ========================= */
+
+        .container {
+            width: 100%;
+            max-width: 1350px;
+
+            display: grid;
+
+            grid-template-columns: 320px 1fr;
+
+            gap: 35px;
+
+            animation: fadeIn 1s ease;
+        }
+
+
+        /* =========================
+           LEFT SIDEBAR
+        ========================= */
+
+        .sidebar {
+            background: rgba(255, 255, 255, 0.65);
+
+            border: 1px solid #a9c9e2;
+            border-radius: 18px;
+
+            padding: 30px 25px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            min-height: 720px;
+
+            box-shadow: 0 8px 25px rgba(72, 117, 153, 0.10);
+
+            animation: slideLeft 1s ease;
+        }
+
+
+        /* PROFILE PICTURE */
+
+        .profile-picture {
+            width: 210px;
+            height: 230px;
+
+            border-radius: 12px;
+
+            background: #c5e2f8;
+            border: 3px solid #a3c8e6;
+
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-bottom: 25px;
+
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        /* PROFILE DETAILS */
+
+        .profile-details {
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .profile-details p {
+            margin: 13px 0;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .profile-details strong {
+            color: #315f85;
+
+            font-family: "DM Serif Display", serif;
+            font-style: italic;
+            font-size: 17px;
+        }
+
+
+        /* SOCIALS */
+
+        .social-title {
+            width: 100%;
+
+            font-family: "DM Serif Display", serif;
+            font-style: italic;
+
+            font-size: 20px;
+
+            margin-bottom: 15px;
+        }
+
+        .socials {
+            width: 100%;
+
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .socials a {
+            width: 55px;
+            height: 55px;
+
+            background: #c6e2fa;
+
+            border: 1px solid #a6c9e8;
+            border-radius: 9px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transition: 0.3s ease;
+        }
+
+        .socials img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .socials a:hover {
+            transform: translateY(-6px) scale(1.08);
+
+            box-shadow: 0 5px 12px rgba(55, 105, 150, 0.2);
+        }
+
+
+        /* =========================
+           RIGHT SIDE
+        ========================= */
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+
+            gap: 25px;
+
+            min-width: 0;
+
+            position: relative;
+
+            padding-bottom: 75px;
+
+            animation: slideRight 1s ease;
+        }
+
+
+        /* =========================
+           IMAGE BANNER
+        ========================= */
+
+        .banner {
+            width: 100%;
+            height: 180px;
+
+            background: #c5e2f8;
+
+            border: 2px solid #a9c9e2;
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            box-shadow: 0 8px 20px rgba(72, 117, 153, 0.10);
+
+            transition: 0.3s ease;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: transform 0.5s ease;
+        }
+
+        .banner:hover img {
+            transform: scale(1.03);
+        }
+
+
+        /* =========================
+           NAVIGATION BUTTONS
+        ========================= */
+
+        .navigation {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.65);
+
+            border: 2px solid #9bbfdc;
+            border-radius: 18px;
+
+            padding: 23px 15px;
+
+            font-family: "DM Serif Display", serif;
+            font-style: italic;
+
+            font-size: 27px;
+
+            color: #315f85;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #ffffff;
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 8px 18px rgba(72, 117, 153, 0.15);
+        }
+
+        .nav-button.active {
+            background: #ffffff;
+
+            border-color: #527fa5;
+
+            box-shadow: 0 4px 12px rgba(72, 117, 153, 0.15);
+        }
+
+
+        /* =========================
+           CONTENT BOX
+        ========================= */
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.75);
+
+            border: 2px solid #a9c9e2;
+            border-radius: 18px;
+
+            padding: 35px;
+
+            min-height: 530px;
+            max-height: 650px;
+
+            overflow-y: auto;
+
+            box-shadow: 0 8px 25px rgba(72, 117, 153, 0.10);
+        }
+
+
+        /* SCROLLBAR */
+
+        .content-box::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        .content-box::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .content-box::-webkit-scrollbar-thumb {
+            background: #9bbfdc;
+            border-radius: 10px;
+        }
+
+
+        /* CONTENT HEADINGS */
+
+        .content-box h2 {
+            font-family: "DM Serif Display", serif;
+            font-style: italic;
+
+            font-size: 27px;
+
+            color: #315f85;
+
+            margin-bottom: 20px;
+
+            border-bottom: 1px solid #a9c9e2;
+            padding-bottom: 12px;
+        }
+
+        .content-box h3 {
+            font-family: "DM Serif Display", serif;
+            font-style: italic;
+
+            font-size: 21px;
+
+            color: #416d92;
+
+            margin: 30px 0 15px;
+        }
+
+        .content-box p {
+            font-size: 15px;
+            line-height: 1.8;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* INTEREST LIST */
+
+        .interest-list {
+            padding-left: 25px;
+        }
+
+        .interest-list li {
+            margin-bottom: 14px;
+            font-size: 15px;
+
+            transition: 0.3s ease;
+        }
+
+        .interest-list li:hover {
+            transform: translateX(6px);
+            color: #477fae;
+        }
+
+
+        /* CREATIVE SKILL IMAGES */
+
+        .skill-image {
+            width: 110px;
+            height: 100px;
+
+            object-fit: contain;
+
+            border-radius: 10px;
+
+            transition: 0.3s ease;
+        }
+
+        .skill-image:hover {
+            transform: scale(1.08);
+        }
+
+
+        /* =========================
+           ACTIVITIES / PROJECT LINKS
+        ========================= */
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+        .activity-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 20px;
+
+            background: #e6f3ff;
+
+            border: 1px solid #b4d3ed;
+            border-radius: 12px;
+
+            text-decoration: none;
+
+            color: #315f85;
+
+            transition: all 0.3s ease;
+        }
+
+        .activity-card:hover {
+            background: #d5ebfc;
+
+            transform: translateX(6px);
+
+            box-shadow: 0 5px 12px rgba(72, 117, 153, 0.12);
+        }
+
+        .activity-card h3 {
+            margin: 0 0 7px;
+            font-size: 19px;
+        }
+
+        .activity-card p {
+            margin: 0;
+            font-size: 13px;
+            color: #58758e;
+        }
+
+        .activity-arrow {
+            font-size: 22px;
+        }
+
+
+        /* =========================
+           TAB SWITCHING
+        ========================= */
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: contentFade 0.5s ease;
+        }
+
+
+    
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes contentFade {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        @keyframes stickerFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(-3deg);
+            }
+
+            50% {
+                transform: translateY(-7px) rotate(3deg);
+            }
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            body {
+                align-items: flex-start;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .sidebar {
+                min-height: auto;
+            }
+
+            .profile-picture {
+                width: 170px;
+                height: 185px;
+            }
+
+            .profile-details {
+                margin-bottom: 25px;
+            }
+
+            .banner {
+                height: 140px;
+            }
+
+            .content-box {
+                min-height: 450px;
+                max-height: 600px;
+                padding: 25px;
+            }
+
+            .nav-button {
+                font-size: 22px;
+                padding: 20px 10px;
+            }
+
+            .sticker {
+                width: 120px;
+                height: 110px;
+                bottom: 0;
+                left: 10px;
+            }
+        }
+
+
+        @media (max-width: 450px) {
+
+            .navigation {
+                gap: 10px;
+            }
+
+            .nav-button {
+                font-size: 19px;
+            }
+
+            .content-box {
+                padding: 20px;
+            }
+
+            .activity-card {
+                padding: 15px;
+            }
+
+            .banner {
+                height: 110px;
+            }
+        }
+
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- ==================================
+             LEFT PROFILE SIDEBAR
+        ================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- PROFILE PICTURE -->
+
+            <div class="profile-picture">
+
+                <img
+                    src="img/profileweb.png"
+                    alt="My Profile Picture"
+                    onerror="this.style.display='none';">
+
+            </div>
+
+
+            <!-- PERSONAL DETAILS -->
+
+            <div class="profile-details">
+
+                <p>
+                    <strong>Name:</strong>
+                    Ella Nicole M. Punzalan
+                </p>
+
+                <p>
+                    <strong>Age:</strong>
+                    18
+                </p>
+
+                <p>
+                    <strong>Section:</strong>
+                    ITE105
+                </p>
+
+            </div>
+
+
+            <!-- SOCIALS -->
+
+            <h3 class="social-title">Socials</h3>
+
+            <div class="socials">
+
+                <a href="https://fb.com/spard4vergil" target="_blank" rel="noopener noreferrer">
+                    <img src="img/Columbina Facebook Icon.png" alt="Social 1">
+                </a>
+
+                <a href="https://instagram.com/elxpnz_" target="_blank" rel="noopener noreferrer">
+                    <img src="img/Columbina Instagram Icon.png" alt="Social 2">
+                </a>
+
+                <a href="https://open.spotify.com/user/2q0rkirj3jegvj8dxqava51je?si=00671fe6ca854bdf" target="_blank" rel="noopener noreferrer">
+                    <img src="img/Columbina Spotify Icon.png" alt="Social 3">
+                </a>
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- ==================================
+             RIGHT SIDE CONTENT
+        ================================== -->
+
+        <main class="main-content">
+
+
+            <!-- ==================================
+                 IMAGE BANNER
+            ================================== -->
+
+            <div class="banner">
+
+
+                <img
+                    src="img/c217715e2ac9850d6f7eac0762671f14.jpg"
+                    alt="Portfolio Banner">
+
+            </div>
+
+
+
+            <!-- ==================================
+                 NAVIGATION BUTTONS
+            ================================== -->
+
+            <nav class="navigation">
+
+                <button
+                    class="nav-button active"
+                    onclick="showTab('intro', this)">
+
+                    INTRO
+
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    onclick="showTab('activities', this)">
+
+                    ACTIVITIES
+
+                </button>
+
+            </nav>
+
+
+
+            <!-- ==================================
+                 MAIN CONTENT BOX
+            ================================== -->
+
+            <div class="content-box">
+
+
+                <!-- INTRODUCTION -->
+
+                <section id="intro" class="tab-content active">
+
+                    <h2>Introduction</h2>
+
+                    <p>
+                        I'm Ella Nicole M. Punzalan from ITE105.
+                        I'm currently taking Intermediate Programming
+                        as a First-Year student and learning about Java.
+
+                        I took BSIT for the job opportunities,
+                        though my passion and interest lies in arts.
+                    </p>
+
+
+                    <!-- INTERESTS -->
+
+                    <h3>Interest</h3>
+
+                    <ul class="interest-list">
+
+                        <li>Music</li>
+                        <li>Character Creation</li>
+                        <li>Gaming</li>
+                        <li>Anime & Cartoons</li>
+
+                    </ul>
+
+
+                    <!-- CREATIVE SKILLS -->
+
+                    <h3>Creative Skills</h3>
+
+                    <p>Digital Art</p>
+
+
+                    <a href="https://drive.google.com/drive/folders/1MT8sFqVutxPK0Vm8xH8awnYc2wAqxwWY?usp=drive_link" target="_blank" rel="noopener noreferrer">
+
+                        <img
+                            class="skill-image"
+                            src="img/download__16_-removebg-preview.png"
+                            alt="Digital Art Folder">
+
+                    </a>
+
+
+                    <!-- LANGUAGE AND TOOLS -->
+
+                    <h3>Language and Tools</h3>
+
+                    <a href="https://www.java.com" target="blank" target="_blank" rel="noopener noreferrer">
+
+                        <img
+                            class="skill-image"
+                            src="img/download__18_-removebg-preview.png"
+                            alt="Java Icon"
+                            style="width: 55px; height: 55px;">
+
+                    </a>
+
+                </section>
+
+
+
+                <!-- ACTIVITIES -->
+
+                <section id="activities" class="tab-content">
+
+                    <h2>Activities & Projects</h2>
+
+                    <p>
+                        Welcome to my activities section!
+                        Here, you can find the links to my
+                        Midterm and Final tasks, also my 
+                        GitHub repository.
+                    </p>
+
+
+                    <div class="activity-list">
+
+
+                        <!-- GITHUB -->
+
+                        <a
+                            class="activity-card"
+                            href="https://github.com/eliel33?tab=repositories"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            <div>
+
+                                <h3>GitHub Repository</h3>
+
+                                <p>
+                                    My programming activities and codes.
+                                </p>
+
+                            </div>
+
+                            <span class="activity-arrow">↗</span>
+
+                        </a>
+
+
+                        <a
+                            class="activity-card"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            <div>
+
+                                <h3>Midterm Tasks</h3>
+
+                                <p>
+                                    Pdf and Java files of my Midterm Task 01.
+                                </p>
+
+                            </div>
+
+                            <span class="activity-arrow">↗</span>
+
+                        </a>
+
+
+                        <!-- PROJECT 3 -->
+
+                        <a
+                            class="activity-card"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            <div>
+
+                                <h3>Finals Tasks</h3>
+
+                                <p>
+                                    Pdf and Java files of my Midterm Task 02.
+                                </p>
+
+                            </div>
+
+                            <span class="activity-arrow">↗</span>
+
+                        </a>
+
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <script>
+
+        function showTab(tabId, button) {
+
+            // Hide all content sections
+
+            const contents = document.querySelectorAll('.tab-content');
+
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+
+            // Remove active button styling
+
+            const buttons = document.querySelectorAll('.nav-button');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+
+            // Display selected section
+
+            document.getElementById(tabId).classList.add('active');
+
+
+            // Highlight selected navigation button
+
+            button.classList.add('active');
+
+
+            // Reset content scrolling
+
+            document.querySelector('.content-box').scrollTop = 0;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
